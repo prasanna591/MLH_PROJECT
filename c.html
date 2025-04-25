@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MR. LEGEND HOLIDAYS - Curated Group & College Journeys</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* Reset and Base Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        line-height: 1.6;
+        color: #333;
+        overflow-x: hidden;
+      }
+
+      .container {
+        width: 100%;
+        padding: 0 20px;
+        margin: 0 auto;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      a {
+        text-decoration: none;
+        color: #333;
+        transition: color 0.3s ease;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      /* Typography */
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Playfair Display", serif;
+        margin-bottom: 0.5em;
+      }
+
+      .section-title {
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      /* Header Styles */
+      .main-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+      }
+
+      .logo {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        font-size: 1.2rem;
+      }
+
+      .menu-toggle {
+        display: block;
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+
+      .main-nav {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: white;
+        height: 0;
+        overflow: hidden;
+        transition: height 0.3s ease;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .main-nav.active {
+        height: auto;
+      }
+
+      .main-nav ul {
+        padding: 20px 0;
+      }
+
+      .main-nav li {
+        margin-bottom: 15px;
+        text-align: center;
+      }
+
+      .main-nav a {
+        font-weight: 600;
+        font-size: 1.1rem;
+        padding: 5px 0;
+        display: block;
+      }
+
+      .main-nav a:hover {
+        color: #a67c00;
+      }
+
+      /* Hero Section */
+      .hero-section {
+        position: relative;
+        height: 100vh;
+        min-height: 500px;
+        background: url("/api/placeholder/1000/600") center/cover no-repeat;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        margin-top: 60px;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 10;
+        color: white;
+        padding: 20px;
+      }
+
+      .hero-title {
+        font-size: 2.2rem;
+        margin-bottom: 0.5em;
+      }
+
+      .hero-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 2em;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background: #a67c00;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 4px;
+        font-weight: 600;
+        transition: background 0.3s ease;
+      }
+
+      .cta-button:hover {
+        background: #895f00;
+      }
+
+      .large {
+        font-size: 1.1rem;
+        padding: 15px 30px;
+      }
+
+      /* Section Padding */
+      .section-padding {
+        padding: 60px 0;
+      }
+
+      /* Intro Section */
+      .intro-section {
+        background-color: #f9f9f9;
+      }
+
+      .intro-section p {
+        margin-bottom: 2rem;
+      }
+
+      .intro-visual {
+        margin-top: 2rem;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      /* Services Section */
+      .services-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .service-card {
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .service-card-img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .service-card h3 {
+        padding: 20px 20px 10px;
+      }
+
+      .service-card p {
+        padding: 0 20px;
+        margin-bottom: 15px;
+      }
+
+      .learn-more {
+        display: inline-block;
+        padding: 0 20px 20px;
+        color: #a67c00;
+        font-weight: 600;
+      }
+
+      /* Video Showcase Section */
+      .video-showcase-section {
+        background-color: #333;
+        color: white;
+      }
+
+      .video-gallery {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .video-container {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+        height: 0;
+        overflow: hidden;
+        border-radius: 8px;
+      }
+
+      .video-container video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .video-placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("/api/placeholder/600/400") center/cover no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+
+      .play-button {
+        background: rgba(166, 124, 0, 0.8);
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.3s ease;
+      }
+
+      .play-button i {
+        color: white;
+        font-size: 24px;
+      }
+
+      .play-button:hover {
+        background: #a67c00;
+      }
+
+      /* Tabs for Video Categories */
+      .video-tabs {
+        display: flex;
+        overflow-x: auto;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+      }
+
+      .tab-btn {
+        background: none;
+        border: none;
+        color: #999;
+        padding: 10px 20px;
+        font-family: "Inter", sans-serif;
+        font-size: 0.9rem;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      .tab-btn.active {
+        color: white;
+        border-bottom: 2px solid #a67c00;
+      }
+
+      /* Features Section */
+      .why-us-section {
+        background-color: #f9f9f9;
+      }
+
+      .features-list li {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 30px;
+      }
+
+      .feature-icon {
+        flex: 0 0 50px;
+        height: 50px;
+        background: #a67c00;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        margin-right: 20px;
+        font-size: 1.2rem;
+      }
+
+      /* Testimonial Section */
+      .testimonial-snippet {
+        background: url("/api/placeholder/800/400") center/cover no-repeat;
+        position: relative;
+      }
+
+      .testimonial-snippet::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+      }
+
+      .testimonial-snippet .container {
+        position: relative;
+        z-index: 10;
+      }
+
+      blockquote {
+        color: white;
+        font-size: 1.2rem;
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      cite {
+        display: block;
+        margin-top: 20px;
+        font-style: normal;
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+
+      /* CTA Section */
+      .final-cta-section {
+        background-color: #f0f0f0;
+      }
+
+      .final-cta-section p {
+        margin-bottom: 2rem;
+      }
+
+      /* Footer */
+      .main-footer {
+        background: #333;
+        color: white;
+        padding-top: 60px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding-bottom: 40px;
+      }
+
+      .footer-col h4 {
+        margin-bottom: 20px;
+      }
+
+      .footer-col ul li {
+        margin-bottom: 10px;
+      }
+
+      .footer-col a {
+        color: #ccc;
+      }
+
+      .footer-col a:hover {
+        color: white;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 20px 0;
+        font-size: 0.8rem;
+        text-align: center;
+      }
+
+      .footer-bottom a {
+        color: #ccc;
+      }
+
+      /* Scroll to Top Button */
+      .scroll-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 40px;
+        height: 40px;
+        background: #a67c00;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+      }
+
+      .scroll-top.visible {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      /* Lightbox Gallery */
+      .lightbox {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .lightbox.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .lightbox-content {
+        width: 80%;
+        max-height: 80vh;
+        position: relative;
+      }
+
+      .lightbox-close {
+        position: absolute;
+        top: -40px;
+        right: 0;
+        font-size: 1.5rem;
+        color: white;
+        cursor: pointer;
+      }
+
+      /* Contact Form */
+      .contact-form {
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-family: "Inter", sans-serif;
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: #a67c00;
+      }
+
+      textarea.form-control {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      .submit-btn {
+        background: #a67c00;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 4px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      .submit-btn:hover {
+        background: #895f00;
+      }
+
+      /* Mobile first - Media Queries for larger screens */
+      @media (min-width: 768px) {
+        .container {
+          max-width: 720px;
+        }
+
+        .menu-toggle {
+          display: none;
+        }
+
+        .main-nav {
+          position: static;
+          height: auto;
+          box-shadow: none;
+        }
+
+        .main-nav ul {
+          display: flex;
+          padding: 0;
+        }
+
+        .main-nav li {
+          margin: 0 0 0 20px;
+          text-align: left;
+        }
+
+        .hero-title {
+          font-size: 3rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.2rem;
+        }
+
+        .services-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .video-gallery {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .footer-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .section-title {
+          font-size: 2.2rem;
+        }
+      }
+
+      @media (min-width: 992px) {
+        .container {
+          max-width: 960px;
+        }
+      }
+
+      @media (min-width: 1200px) {
+        .container {
+          max-width: 1140px;
+        }
+
+        .video-gallery {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="container header-container">
+        <div class="logo">MR. LEGEND HOLIDAYS</div>
+        <button class="menu-toggle" id="menuToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+        <nav class="main-nav" id="mainNav">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#showcase">Showcase</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+          <h1 class="hero-title">Legendary Journeys, Seamlessly Delivered.</h1>
+          <p class="hero-subtitle">
+            Expertly curated group and college travel experiences.
+          </p>
+          <a href="#contact" class="cta-button">Plan Your Expedition</a>
+        </div>
+      </section>
+
+      <section class="intro-section section-padding">
+        <div class="container">
+          <h2 class="section-title">Curating Unforgettable Group Adventures</h2>
+          <p>
+            MR. LEGEND HOLIDAYS specializes in crafting exceptional travel
+            experiences for large groups and college tours. We handle the
+            complexities, allowing you to focus on creating legendary memories.
+            Our meticulous planning and exclusive access ensure every journey is
+            smooth, safe, and truly remarkable.
+          </p>
+          <div class="intro-visual">
+            <img
+              src="/api/placeholder/800/400"
+              alt="Group enjoying a scenic view"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="services-section section-padding">
+        <div class="container">
+          <h2 class="section-title text-center">Our Expertise</h2>
+          <div class="services-grid">
+            <div class="service-card">
+              <img
+                src="/api/placeholder/400/200"
+                alt="Large Group Travel"
+                class="service-card-img"
+              />
+              <h3>Large Group Expeditions</h3>
+              <p>
+                Tailored trips for corporate teams, families, and special
+                interest groups.
+              </p>
+              <a href="#" class="learn-more">Learn More &rarr;</a>
+            </div>
+            <div class="service-card">
+              <img
+                src="/api/placeholder/400/200"
+                alt="College Tours"
+                class="service-card-img"
+              />
+              <h3>Premier College Tours</h3>
+              <p>
+                Educational, safe, and engaging tours designed for university
+                students.
+              </p>
+              <a href="#" class="learn-more">Learn More &rarr;</a>
+            </div>
+            <div class="service-card">
+              <img
+                src="/api/placeholder/400/200"
+                alt="Custom Travel"
+                class="service-card-img"
+              />
+              <h3>Bespoke Journey Design</h3>
+              <p>
+                Your unique vision brought to life with personalized planning.
+              </p>
+              <a href="#" class="learn-more">Learn More &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="showcase" class="video-showcase-section section-padding">
+        <div class="container">
+          <h2 class="section-title text-center">
+            Experience the Legend: Video Gallery
+          </h2>
+
+          <div class="video-tabs">
+            <button class="tab-btn active" data-tab="all">All</button>
+            <button class="tab-btn" data-tab="group">Group Tours</button>
+            <button class="tab-btn" data-tab="college">College Tours</button>
+            <button class="tab-btn" data-tab="testimonials">
+              Testimonials
+            </button>
+          </div>
+
+          <div class="video-gallery">
+            <div class="video-container" data-category="group">
+              <div class="video-placeholder">
+                <div class="play-button">
+                  <i class="fas fa-play"></i>
+                </div>
+              </div>
+              <video data-src="video-url-1.mp4" controls preload="none"></video>
+            </div>
+
+            <div class="video-container" data-category="college">
+              <div class="video-placeholder">
+                <div class="play-button">
+                  <i class="fas fa-play"></i>
+                </div>
+              </div>
+              <video data-src="video-url-2.mp4" controls preload="none"></video>
+            </div>
+
+            <div class="video-container" data-category="testimonials">
+              <div class="video-placeholder">
+                <div class="play-button">
+                  <i class="fas fa-play"></i>
+                </div>
+              </div>
+              <video data-src="video-url-3.mp4" controls preload="none"></video>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="why-us-section section-padding">
+        <div class="container">
+          <h2 class="section-title text-center">The MR. LEGEND Difference</h2>
+          <ul class="features-list">
+            <li>
+              <div class="feature-icon">
+                <i class="fas fa-plane"></i>
+              </div>
+              <div>
+                <h4>Hassle-Free Planning</h4>
+                <p>We manage every detail, from logistics to bookings.</p>
+              </div>
+            </li>
+            <li>
+              <div class="feature-icon">
+                <i class="fas fa-university"></i>
+              </div>
+              <div>
+                <h4>Group & College Specialists</h4>
+                <p>Deep expertise in handling complex group requirements.</p>
+              </div>
+            </li>
+            <li>
+              <div class="feature-icon">
+                <i class="fas fa-key"></i>
+              </div>
+              <div>
+                <h4>Exclusive Access</h4>
+                <p>Unlock unique experiences and destinations.</p>
+              </div>
+            </li>
+            <li>
+              <div class="feature-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <div>
+                <h4>Safety & Reliability</h4>
+                <p>Your group's wellbeing is our top priority.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="testimonial-snippet section-padding">
+        <div class="container">
+          <blockquote>
+            "MR. LEGEND HOLIDAYS delivered an absolutely flawless trip for our
+            entire department. Their attention to detail was incredible."
+            <cite>&mdash; Sarah Chen, Event Coordinator, TechCorp</cite>
+          </blockquote>
+        </div>
+      </section>
+
+      <section id="contact" class="final-cta-section section-padding">
+        <div class="container">
+          <h2 class="section-title text-center">
+            Ready to Craft Your Legendary Trip?
+          </h2>
+
+          <div class="contact-form">
+            <form id="contactForm">
+              <div class="form-group">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" id="name" class="form-control" required />
+              </div>
+
+              <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" class="form-control" required />
+              </div>
+
+              <div class="form-group">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="tel" id="phone" class="form-control" />
+              </div>
+
+              <div class="form-group">
+                <label for="groupSize" class="form-label">Group Size</label>
+                <select id="groupSize" class="form-control">
+                  <option value="">Select group size</option>
+                  <option value="small">10-25 people</option>
+                  <option value="medium">26-50 people</option>
+                  <option value="large">51-100 people</option>
+                  <option value="xlarge">100+ people</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message" class="form-label"
+                  >Your Trip Details</label
+                >
+                <textarea id="message" class="form-control" required></textarea>
+              </div>
+
+              <button type="submit" class="submit-btn">
+                Request a Custom Quote
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="main-footer">
+      <div class="container footer-grid">
+        <div class="footer-col">
+          <h4>MR. LEGEND HOLIDAYS</h4>
+          <p>Curating legendary group travel experiences.</p>
+          <div class="social-icons" style="margin-top: 15px">
+            <a href="#" style="color: white; margin-right: 15px"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" style="color: white; margin-right: 15px"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" style="color: white; margin-right: 15px"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="#" style="color: white"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#showcase">Showcase</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <p>
+            <i class="fas fa-envelope" style="margin-right: 8px"></i>
+            info@mrlegendholidays.com
+          </p>
+          <p>
+            <i class="fas fa-phone" style="margin-right: 8px"></i>
+            +91-XXX-XXXXXXX
+          </p>
+          <p>
+            <i class="fas fa-map-marker-alt" style="margin-right: 8px"></i>
+            Madurai, Tamil Nadu, India
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <p>
+            &copy; 2025 MR. LEGEND HOLIDAYS. All Rights Reserved. |
+            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <div class="scroll-top" id="scrollTop">
+      <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <div class="lightbox" id="videoLightbox">
+      <div class="lightbox-content">
+        <span class="lightbox-close">&times;</span>
+        <video id="lightboxVideo" controls></video>
+      </div>
+    </div>
+
+    <script>
+      // Mobile Navigation Toggle
+      const menuToggle = document.getElementById("menuToggle");
+      const mainNav = document.getElementById("mainNav");
+
+      menuToggle.addEventListener("click", function () {
+        mainNav.classList.toggle("active");
+        const isOpen = mainNav.classList.contains("active");
+        menuToggle.innerHTML = isOpen
+          ? '<i class="fas fa-times"></i>'
+          : '<i class="fas fa-bars"></i>';
+      });
+
+      // Close menu when clicking on links
+      const navLinks = document.querySelectorAll(".main-nav a");
+      navLinks.forEach((link) => {
+        link.addEventListener("click", function () {
+          mainNav.classList.remove("active");
+          menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            const headerOffset = 70;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition =
+              elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Scroll to Top Button
+      const scrollTopBtn = document.getElementById("scrollTop");
+
+      window.addEventListener("scroll", function () {
+        if (window.pageYOffset > 300) {
+          scrollTopBtn.classList.add("visible");
+        } else {
+          scrollTopBtn.classList.remove("visible");
+        }
+      });
+
+      scrollTopBtn.addEventListener("click", function () {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      // Video Player Functionality
+      const videoPlaceholders = document.querySelectorAll(".video-placeholder");
+      const lightbox = document.getElementById("videoLightbox");
+      const lightboxVideo = document.getElementById("lightboxVideo");
+      const lightboxClose = document.querySelector(".lightbox-close");
+
+      videoPlaceholders.forEach((placeholder) => {
+        placeholder.addEventListener("click", function () {
+          const videoContainer = this.parentElement;
+          const video = videoContainer.querySelector("video");
+          const videoSrc = video.getAttribute("data-src");
+
+          // Set the video source and open lightbox
+          lightboxVideo.setAttribute("src", videoSrc);
+          lightbox.classList.add("active");
+          lightboxVideo.play();
+        });
+      });
+
+      // Close video lightbox
+      lightboxClose.addEventListener("click", function () {
+        lightbox.classList.remove("active");
+        lightboxVideo.pause();
+        lightboxVideo.currentTime = 0;
+        lightboxVideo.removeAttribute("src");
+      });
+
+      // Close lightbox when clicking outside video
+      lightbox.addEventListener("click", function (e) {
+        if (e.target === lightbox) {
+          lightbox.classList.remove("active");
+          lightboxVideo.pause();
+          lightboxVideo.currentTime = 0;
+          lightboxVideo.removeAttribute("src");
+        }
+      });
+
+      // Video Gallery Tab Functionality
+      const tabButtons = document.querySelectorAll(".tab-btn");
+      const videoItems = document.querySelectorAll(".video-container");
+
+      tabButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          // Remove active class from all buttons
+          tabButtons.forEach((btn) => btn.classList.remove("active"));
+
+          // Add active class to clicked button
+          this.classList.add("active");
+
+          // Filter videos based on category
+          const category = this.getAttribute("data-tab");
+
+          videoItems.forEach((item) => {
+            if (
+              category === "all" ||
+              item.getAttribute("data-category") === category
+            ) {
+              item.style.display = "block";
+            } else {
+              item.style.display = "none";
+            }
+          });
+        });
+      });
+
+      // Form Validation and Submission
+      const contactForm = document.getElementById("contactForm");
+
+      if (contactForm) {
+        contactForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Basic validation
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const message = document.getElementById("message").value;
+
+          if (!name || !email || !message) {
+            alert("Please fill in all required fields");
+            return;
+          }
+
+          // Email validation
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(email)) {
+            alert("Please enter a valid email address");
+            return;
+          }
+
+          // If validation passes, simulate form submission
+          // In a real implementation, you would send this data to your server
+          alert("Thank you for your message! We will get back to you soon.");
+          contactForm.reset();
+        });
+      }
+
+      // Sticky Header on Scroll
+      const header = document.querySelector(".main-header");
+      let lastScrollTop = 0;
+
+      window.addEventListener("scroll", function () {
+        const scrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > 100) {
+          header.style.padding = "5px 0";
+          header.style.boxShadow = "0 2px 10px rgba(0, 0, 0, 0.1)";
+        } else {
+          header.style.padding = "15px 0";
+          header.style.boxShadow = "none";
+        }
+
+        lastScrollTop = scrollTop;
+      });
+
+      // Lazy loading for videos
+      document.addEventListener("DOMContentLoaded", function () {
+        // Set placeholder images for all videos
+        const videoContainers = document.querySelectorAll(".video-container");
+
+        videoContainers.forEach((container) => {
+          const video = container.querySelector("video");
+          const placeholder = container.querySelector(".video-placeholder");
+
+          // This would load the video only when needed in a real implementation
+          // video.setAttribute('poster', placeholder.style.backgroundImage);
+        });
+      });
+
+      // Add animation to service cards on scroll
+      const animateOnScroll = function () {
+        const serviceCards = document.querySelectorAll(".service-card");
+
+        serviceCards.forEach((card) => {
+          const cardPosition = card.getBoundingClientRect().top;
+          const screenPosition = window.innerHeight / 1.3;
+
+          if (cardPosition < screenPosition) {
+            card.style.opacity = "1";
+            card.style.transform = "translateY(0)";
+          }
+        });
+      };
+
+      // Initialize card animations
+      document.addEventListener("DOMContentLoaded", function () {
+        const serviceCards = document.querySelectorAll(".service-card");
+
+        serviceCards.forEach((card) => {
+          card.style.opacity = "0";
+          card.style.transform = "translateY(20px)";
+          card.style.transition = "all 0.6s ease-out";
+        });
+
+        window.addEventListener("scroll", animateOnScroll);
+        // Initial check in case elements are already in view
+        animateOnScroll();
+      });
+
+      // Show success message on form submission
+      const showSuccessMessage = function (message) {
+        const formContainer = document.querySelector(".contact-form");
+
+        // Create success message element
+        const successMessage = document.createElement("div");
+        successMessage.className = "success-message";
+        successMessage.style.padding = "15px";
+        successMessage.style.background = "#d4edda";
+        successMessage.style.color = "#155724";
+        successMessage.style.borderRadius = "4px";
+        successMessage.style.marginTop = "20px";
+        successMessage.style.textAlign = "center";
+        successMessage.innerHTML = message;
+
+        // Add to DOM
+        formContainer.appendChild(successMessage);
+
+        // Remove after 5 seconds
+        setTimeout(() => {
+          successMessage.remove();
+        }, 5000);
+      };
+
+      // Auto-advancing testimonial slider (if multiple testimonials are added later)
+      const setupTestimonialSlider = function () {
+        const testimonials = document.querySelectorAll(".testimonial-item");
+
+        if (testimonials.length <= 1) return; // No need for slider if only one testimonial
+
+        let currentTestimonial = 0;
+
+        // Hide all testimonials except the first one
+        testimonials.forEach((testimonial, index) => {
+          if (index !== 0) {
+            testimonial.style.display = "none";
+          }
+        });
+
+        // Function to show next testimonial
+        const showNextTestimonial = () => {
+          testimonials[currentTestimonial].style.display = "none";
+          currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+          testimonials[currentTestimonial].style.display = "block";
+        };
+
+        // Auto-advance every 5 seconds
+        setInterval(showNextTestimonial, 5000);
+      };
+
+      // Image gallery lightbox (if image gallery is added later)
+      const setupImageGallery = function () {
+        const galleryImages = document.querySelectorAll(".gallery-image");
+        const imageLightbox = document.getElementById("imageLightbox");
+
+        if (!imageLightbox || galleryImages.length === 0) return;
+
+        const lightboxImg = imageLightbox.querySelector("img");
+        const lightboxClose = imageLightbox.querySelector(".lightbox-close");
+
+        galleryImages.forEach((image) => {
+          image.addEventListener("click", function () {
+            const imgSrc = this.getAttribute("src");
+            lightboxImg.setAttribute("src", imgSrc);
+            imageLightbox.classList.add("active");
+          });
+        });
+
+        // Close functionality
+        if (lightboxClose) {
+          lightboxClose.addEventListener("click", function () {
+            imageLightbox.classList.remove("active");
+          });
+        }
+
+        imageLightbox.addEventListener("click", function (e) {
+          if (e.target === imageLightbox) {
+            imageLightbox.classList.remove("active");
+          }
+        });
+      };
+
+      // Run setup functions when DOM is fully loaded
+      document.addEventListener("DOMContentLoaded", function () {
+        // Call any additional setup functions here
+        // setupTestimonialSlider();
+        // setupImageGallery();
+      });
+    </script>
+  </body>
+</html>
