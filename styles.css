@@ -241,13 +241,15 @@ ul {
 .logo img {
   height: 50px; /* Adjust size */
   margin-right: 15px;
+
   /* Make logo white if it's dark */
 }
 
 .logo h1 {
   font-size: 1.8rem;
   margin: 0;
-  color: #fff; /* Ensure logo text is white */
+  color: #cacaee;
+  outline: black; /* Ensure logo text is blue */
 }
 
 .nav-links {
@@ -355,7 +357,8 @@ ul {
 .hero-content p {
   font-size: 1.4rem;
   margin-bottom: 40px;
-  color: rgba(255, 255, 255, 0.9); /* Slightly less bright white */
+  letter-spacing: -1;
+  color: rgba(186, 194, 216, 0.9); /* Slightly less bright white */
 }
 
 .hero-buttons .btn {
