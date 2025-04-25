@@ -441,21 +441,22 @@ ul {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-/* === Features Section === */
+/* === Features Section (Mobile First) === */
 .features {
-  padding: 100px 0;
+  padding: 60px 20px; /* Reduced padding for smaller screens */
 }
 
 .features-grid {
+  margin-top: 40px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
   text-align: center;
 }
 
 .feature-item {
   background: var(--bg-secondary-color);
-  padding: 40px 30px;
+  padding: 30px 20px; /* Reduced padding for mobile */
   border-radius: 10px;
   border: 1px solid var(--border-color);
   transition: transform var(--transition-speed) var(--transition-effect),
@@ -463,32 +464,256 @@ ul {
 }
 
 .feature-item:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 25px var(--shadow-color);
+  transform: translateY(-5px); /* Subtle hover for mobile */
+  box-shadow: 0 8px 20px var(--shadow-color); /* Subtle shadow for mobile */
 }
 
 .feature-icon {
-  font-size: 3rem;
+  font-size: 2.5rem; /* Slightly smaller icon for mobile */
   color: var(--primary-color);
-  margin-bottom: 20px;
+  margin-bottom: 15px; /* Reduced margin for mobile */
   display: inline-block;
   transition: transform var(--transition-speed) var(--transition-effect);
 }
 
 .feature-item:hover .feature-icon {
-  transform: scale(1.2) rotate(-10deg);
+  transform: scale(1.1) rotate(-5deg); /* Subtle icon hover for mobile */
 }
 
 .feature-item h3 {
-  font-size: 1.4rem;
-  margin-bottom: 15px;
+  font-size: 1.2rem; /* Slightly smaller heading for mobile */
+  margin-bottom: 10px; /* Reduced margin for mobile */
 }
 
 .feature-item p {
-  font-size: 0.95rem;
+  font-size: 0.9rem; /* Slightly smaller paragraph text for mobile */
   color: var(--text-muted-color);
 }
 
+/* Media query for medium screens (e.g., tablets) */
+@media (min-width: 768px) {
+  .features {
+    padding: 80px 40px; /* Increased padding for tablets */
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(300px, 1fr)
+    ); /* Wider minmax for tablets */
+    gap: 35px; /* Adjusted gap for tablets */
+  }
+
+  .feature-item {
+    padding: 35px 25px; /* Adjusted padding for tablets */
+  }
+
+  .feature-item:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 9px 22px var(--shadow-color);
+  }
+
+  .feature-icon {
+    font-size: 2.8rem; /* Slightly larger icon for tablets */
+    margin-bottom: 18px;
+  }
+
+  .feature-item:hover .feature-icon {
+    transform: scale(1.15) rotate(-8deg);
+  }
+
+  .feature-item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+  }
+
+  .feature-item p {
+    font-size: 0.92rem;
+  }
+}
+
+/* Media query for larger screens (desktops) */
+@media (min-width: 1024px) {
+  .features {
+    padding: 100px 0; /* Your original desktop padding */
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(250px, 1fr)
+    ); /* Your original grid layout */
+    gap: 40px;
+    /* Your original gap */
+  }
+
+  .feature-item {
+    padding: 40px 30px; /* Your original padding */
+  }
+
+  .feature-item:hover {
+    transform: translateY(-8px); /* Your original hover effect */
+    box-shadow: 0 10px 25px var(--shadow-color); /* Your original shadow */
+  }
+
+  .feature-icon {
+    font-size: 3rem; /* Your original icon size */
+    margin-bottom: 20px; /* Your original margin */
+  }
+
+  .feature-item:hover .feature-icon {
+    transform: scale(1.2) rotate(-10deg); /* Your original icon hover */
+  }
+
+  .feature-item h3 {
+    font-size: 1.4rem; /* Your original heading size */
+    margin-bottom: 15px; /* Your original margin */
+  }
+
+  .feature-item p {
+    font-size: 0.95rem; /* Your original paragraph size */
+  }
+}
+
+.card {
+  width: 400px;
+  height: 300px;
+  background-color: #1e1e2f;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+
+.image-carousel {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.image-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.image-slide.active {
+  opacity: 1;
+}
+
+.image-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dots-container {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: white;
+}
+
+/* Media query for medium screens (e.g., tablets) */
+@media (min-width: 768px) {
+  .features {
+    padding: 80px 40px; /* Increased padding for tablets */
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(300px, 1fr)
+    ); /* Wider minmax for tablets */
+    gap: 35px; /* Adjusted gap for tablets */
+  }
+
+  .feature-item {
+    padding: 35px 25px; /* Adjusted padding for tablets */
+  }
+
+  .feature-item:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 9px 22px var(--shadow-color);
+  }
+
+  .feature-icon {
+    font-size: 2.8rem; /* Slightly larger icon for tablets */
+    margin-bottom: 18px;
+  }
+
+  .feature-item:hover .feature-icon {
+    transform: scale(1.15) rotate(-8deg);
+  }
+
+  .feature-item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+  }
+
+  .feature-item p {
+    font-size: 0.92rem;
+  }
+}
+
+/* Media query for larger screens (desktops) */
+@media (min-width: 1024px) {
+  .features {
+    padding: 100px 0; /* Your original desktop padding */
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(250px, 1fr)
+    ); /* Your original grid layout */
+    gap: 40px; /* Your original gap */
+  }
+
+  .feature-item {
+    padding: 40px 30px; /* Your original padding */
+  }
+
+  .feature-item:hover {
+    transform: translateY(-8px); /* Your original hover effect */
+    box-shadow: 0 10px 25px var(--shadow-color); /* Your original shadow */
+  }
+
+  .feature-icon {
+    font-size: 3rem; /* Your original icon size */
+    margin-bottom: 20px; /* Your original margin */
+  }
+
+  .feature-item:hover .feature-icon {
+    transform: scale(1.2) rotate(-10deg); /* Your original icon hover */
+  }
+
+  .feature-item h3 {
+    font-size: 1.4rem; /* Your original heading size */
+    margin-bottom: 15px; /* Your original margin */
+  }
+
+  .feature-item p {
+    font-size: 0.95rem; /* Your original paragraph size */
+  }
+}
 /* === Popular Tours Section === */
 #tours {
   padding: 100px 0;
@@ -1178,7 +1403,6 @@ footer {
   }
 
   .destination-grid,
-  .features-grid,
   .tours-grid,
   .testimonial-container {
     grid-template-columns: 1fr; /* Stack cards */
