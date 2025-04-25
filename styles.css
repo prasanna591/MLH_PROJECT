@@ -1304,6 +1304,16 @@ footer {
   color: var(--text-muted-color);
 }
 
+.autoshow {
+  opacity: 0;
+  transform: translateY(20px) scale(0.3);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.autoshow.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
 /* === Responsive Design === */
 @media (max-width: 992px) {
   h1 {
