@@ -755,11 +755,26 @@
           direction: "vertical",
           slidesPerView: 1,
           spaceBetween: 0,
-          mousewheel: true,
+          mousewheel: {
+            releaseOnEdges: true,
+            forceToAxis: true,
+          },
           pagination: {
             el: ".swiper-pagination",
             clickable: true,
           },
+          touchReleaseOnEdges: true, // Enable on mobile
+        });
+
+        // Auto-scroll after video ends
+        const videos = document.querySelectorAll("video");
+
+        videos.forEach((video, index) => {
+          video.addEventListener("ended", () => {
+            if (index < videos.length - 1) {
+              swiper.slideNext();
+            }
+          });
         });
         // Observe all elements with the 'autoshow' class
         document.querySelectorAll(".autoshow").forEach((el) => {
