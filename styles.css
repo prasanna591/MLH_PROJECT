@@ -266,7 +266,10 @@ video {
 .logo h1 {
   font-size: 1.8rem;
   margin: 0;
-  color: #dadaec;
+  color: #f6f6fa;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000; /* This creates the outline effect */
+
   /* Ensure logo text is blue */
 }
 
@@ -354,7 +357,7 @@ video {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* Darker overlay */
+  /*   background: rgba(0, 0, 0, 0.6); Darker overlay */
   z-index: -1;
 }
 
@@ -370,13 +373,6 @@ video {
   margin-bottom: 20px;
   font-weight: 700;
   color: #fff;
-}
-
-.hero-content p {
-  font-size: 1.4rem;
-  margin-bottom: 40px;
-  letter-spacing: -1;
-  color: rgba(186, 194, 216, 0.9); /* Slightly less bright white */
 }
 
 .hero-buttons .btn {
@@ -1490,7 +1486,7 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    /*  background-color: rgba(0, 0, 0, 0.5); Dark overlay */
     z-index: 1;
   }
 
