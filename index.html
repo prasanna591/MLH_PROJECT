@@ -324,8 +324,8 @@
         <div class="section-header">
           <h2>Traveler Testimonials</h2>
           <p class="section-subheader">
-            Hear from our satisfied travelers about their experiences with Eden
-            Holidays
+            Hear from our satisfied travelers about their experiences with
+            MrLegend Holidays
           </p>
         </div>
         <div class="testimonial-container">
@@ -393,6 +393,7 @@
           margin: 0 auto;
           font-size: 1rem;
           color: #b0b0b0;
+          text-align: center;
         "
       >
         Every journey we craft is filled with smiles, adventures, and
@@ -412,7 +413,7 @@
             <video src="beachview.mp4" controls muted></video>
           </div>
           <div class="swiper-slide">
-            <video src="di boat.mp4" controls muted></video>
+            <video src="dj boat.mp4" controls muted></video>
           </div>
           <div class="swiper-slide">
             <video src="unnaikandu_ dance.mp4" controls muted></video>
@@ -732,6 +733,24 @@
           navLinks.classList.remove("active");
         });
       });
+
+      const swiper = new Swiper(".swiper", {
+        direction: "horizontal",
+        slidesPerView: 1,
+        spaceBetween: 10,
+        loop: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        mousewheel: false,
+        touchReleaseOnEdges: true,
+      });
+      // Initialize AOS (Animate On Scroll)
       document.addEventListener("DOMContentLoaded", function () {
         const observer = new IntersectionObserver(
           (entries) => {
@@ -747,22 +766,6 @@
           }
         );
 
-        const swiper = new Swiper(".swiper", {
-          direction: "horizontal",
-          slidesPerView: 1,
-          spaceBetween: 10,
-          loop: true,
-          navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          },
-          pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-          },
-          mousewheel: false,
-          touchReleaseOnEdges: true,
-        });
         // Observe all elements with the 'autoshow' class
         document.querySelectorAll(".autoshow").forEach((el) => {
           observer.observe(el);
