@@ -82,64 +82,43 @@
         </div>
         <div class="destination-grid">
           <div class="destination-card autoshow">
-            <img src="camp.webp" alt="Ooty camping" class="destination-img" />
+            <img
+              src="Andaman-and-Nicobar-Island.jpg"
+              alt="andamannicobar"
+              class="destination-img"
+            />
             <div class="destination-overlay">
-              <h3>Ooty camping</h3>
+              <h3>Andaman Nichobar</h3>
               <p>
-                Escape to the cool embrace of the Ooty with our unforgettable
-                Ooty camping adventures.
+                Discover the pristine beaches and crystal-clear waters of the
+                Andaman Islands.
               </p>
             </div>
           </div>
           <div class="destination-card autoshow">
             <img
-              src="trecking.jpg"
-              alt="Kanthalur hill climbing"
+              src="chikmanglur.jpg"
+              alt="chikmanglur hill climbing"
               class="destination-img"
             />
             <div class="destination-overlay">
-              <h3>Kanthalur hill climbing</h3>
+              <h3>Chikmanglur hill climbing</h3>
               <p>Experience thrilling adventures in the hills</p>
             </div>
           </div>
           <div class="destination-card autoshow">
-            <img
-              src="kerala.jpg"
-              alt="Kerala Wayanadu"
-              class="destination-img"
-            />
+            <img src="VARKALA.jpg" alt="Varkala" class="destination-img" />
             <div class="destination-overlay">
-              <h3>Wayanadu</h3>
-              <p>Serene hills and lush landscapes</p>
+              <h3>Varkala</h3>
+              <p>Serene hills, lush landscapes and beauty of sea</p>
             </div>
           </div>
+
           <div class="destination-card autoshow">
-            <img
-              src="glass pyramid.jpeg"
-              alt="Rajasthan Desert"
-              class="destination-img"
-            />
+            <img src="goa.jpg" alt="goa" class="destination-img" />
             <div class="destination-overlay">
-              <h3>Pyramid Glasshouse</h3>
-              <p>Experience the unique architecture and stunning views</p>
-            </div>
-          </div>
-          <div class="destination-card autoshow">
-            <img
-              src="sunset in hill.webp"
-              alt="kodaikanal"
-              class="destination-img"
-            />
-            <div class="destination-overlay">
-              <h3>Kodaikanal</h3>
-              <p>Experience the serene beauty of hills and lakes</p>
-            </div>
-          </div>
-          <div class="destination-card autoshow">
-            <img src="bed.jpg" alt="Honeymoon" class="destination-img" />
-            <div class="destination-overlay">
-              <h3>Moonar Honeymoon Cottage</h3>
-              <p>Enjoy the romance and love</p>
+              <h3>Goa</h3>
+              <p>Experience the serene beauty of sea and sky</p>
             </div>
           </div>
         </div>
@@ -193,7 +172,7 @@
         </div>
         <div class="tours-grid">
           <div class="tour-card autoshow">
-            <img src="kerala.jpg" alt="Wayanadu" class="tour-img" />
+            <img src="wonderla.jpeg" alt="wonderla" class="tour-img" />
             <div class="tour-content">
               <div class="tour-rating">
                 <i class="fas fa-star"></i>
@@ -203,10 +182,10 @@
                 <i class="fas fa-star-half-alt"></i>
                 <span>(128 reviews)</span>
               </div>
-              <h3 class="tour-title">Wayanadu</h3>
+              <h3 class="tour-title">Wonderla</h3>
               <p>
-                Experience the charm of these hill stations with snow
-                activities, mall road shopping, and natural beauty.
+                Experience the thrill of rides and attractions at Wonderla
+                Amusement Park.
               </p>
 
               <div class="tour-info">
@@ -247,7 +226,7 @@
                 <i class="far fa-star"></i>
                 <span>(76 reviews)</span>
               </div>
-              <h3 class="tour-title">Ooty Camping</h3>
+              <h3 class="tour-title">Coorg</h3>
               <p>
                 Experience the majesty of snow-capped peaks and lush valleys in
                 Ooty with our camping package.
@@ -402,28 +381,25 @@
       <div class="swiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <video
-              src="https://www.w3schools.com/html/mov_bbb.mp4"
-              controls
-              muted
-            ></video>
+            <video src="circle_dance.mp4" controls muted></video>
           </div>
           <div class="swiper-slide">
-            <video
-              src="https://www.w3schools.com/html/movie.mp4"
-              controls
-              muted
-            ></video>
+            <video src="bus dance.mp4" controls muted></video>
           </div>
           <div class="swiper-slide">
-            <video
-              src="https://www.w3schools.com/html/mov_bbb.mp4"
-              controls
-              muted
-            ></video>
+            <video src="beachview.mp4" controls muted></video>
+          </div>
+          <div class="swiper-slide">
+            <video src="di boat.mp4" controls muted></video>
+          </div>
+          <div class="swiper-slide">
+            <video src="unnaikandu_ dance.mp4" controls muted></video>
           </div>
         </div>
       </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
     </section>
     <!-- Trip Planning Form -->
     <section class="plan-trip" id="plan-trip">
@@ -751,30 +727,21 @@
             rootMargin: "0px 0px -5% 0px", // Similar to your view(70%, 5%)
           }
         );
+
         const swiper = new Swiper(".swiper", {
-          direction: "vertical",
+          direction: "horizontal",
           slidesPerView: 1,
-          spaceBetween: 0,
-          mousewheel: {
-            releaseOnEdges: true,
-            forceToAxis: true,
+          spaceBetween: 10,
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
           },
           pagination: {
             el: ".swiper-pagination",
             clickable: true,
           },
-          touchReleaseOnEdges: true, // Enable on mobile
-        });
-
-        // Auto-scroll after video ends
-        const videos = document.querySelectorAll("video");
-
-        videos.forEach((video, index) => {
-          video.addEventListener("ended", () => {
-            if (index < videos.length - 1) {
-              swiper.slideNext();
-            }
-          });
+          mousewheel: false,
+          touchReleaseOnEdges: true,
         });
         // Observe all elements with the 'autoshow' class
         document.querySelectorAll(".autoshow").forEach((el) => {
