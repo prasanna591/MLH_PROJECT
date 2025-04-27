@@ -205,7 +205,25 @@ ul {
 
 /* Apply to elements you want to fade in on load (add class in HTML or JS) */
 /* Example: Add class="animated-fade-in" to cards */
-
+.swiper {
+  width: 300px;
+  height: 500px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  background: #1e1e2f;
+}
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+}
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 /* === Navbar === */
 .navbar {
   position: fixed;

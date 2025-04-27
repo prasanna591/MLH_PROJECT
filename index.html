@@ -15,6 +15,10 @@
     <link rel="stylesheet" href="styles.css" />
     <link
       rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css"
     />
   </head>
@@ -207,13 +211,9 @@
                 Experience the charm of these hill stations with snow
                 activities, mall road shopping, and natural beauty.
               </p>
-              <div class="tour-info">
-                <span><i class="far fa-clock"></i> 2-3 Days</span>
-                <span><i class="fas fa-user-friends"></i> Max People: 60</span>
-              </div>
+
               <div class="tour-info">
                 <span><i class="fas fa-map-marker-alt"></i> kerala</span>
-                <div class="tour-price">₹2,500 <span>/ per person</span></div>
               </div>
             </div>
           </div>
@@ -233,13 +233,9 @@
                 Experience the serene beauty of hills and lakes with our
                 Kodaikanal tour package.
               </p>
-              <div class="tour-info">
-                <span><i class="far fa-clock"></i> 2 Days</span>
-                <span><i class="fas fa-user-friends"></i> Max People: 60</span>
-              </div>
+
               <div class="tour-info">
                 <span><i class="fas fa-map-marker-alt"></i> Kodaikanal</span>
-                <div class="tour-price">₹2,500 <span>/ per person</span></div>
               </div>
             </div>
           </div>
@@ -259,13 +255,9 @@
                 Experience the majesty of snow-capped peaks and lush valleys in
                 Ooty with our camping package.
               </p>
-              <div class="tour-info">
-                <span><i class="far fa-clock"></i> 2 Days</span>
-                <span><i class="fas fa-user-friends"></i> Max People: 60</span>
-              </div>
+
               <div class="tour-info">
                 <span><i class="fas fa-map-marker-alt"></i> Ooty</span>
-                <div class="tour-price">₹3,000 <span>/ per person</span></div>
               </div>
             </div>
           </div>
@@ -408,7 +400,34 @@
         </div>
       </div>
     </section>
-
+    <section style="padding: 10px">
+      <h2 style="text-align: center; padding: 2px">Videos</h2>
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <video
+              src="https://www.w3schools.com/html/mov_bbb.mp4"
+              controls
+              muted
+            ></video>
+          </div>
+          <div class="swiper-slide">
+            <video
+              src="https://www.w3schools.com/html/movie.mp4"
+              controls
+              muted
+            ></video>
+          </div>
+          <div class="swiper-slide">
+            <video
+              src="https://www.w3schools.com/html/mov_bbb.mp4"
+              controls
+              muted
+            ></video>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- Trip Planning Form -->
     <section class="plan-trip" id="plan-trip">
       <div class="container plan-trip-container">
@@ -691,6 +710,8 @@
     </footer>
 
     <!-- JavaScript -->
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script>
       // Navbar scroll effect
       window.addEventListener("scroll", function () {
@@ -732,7 +753,16 @@
             rootMargin: "0px 0px -5% 0px", // Similar to your view(70%, 5%)
           }
         );
-
+        const swiper = new Swiper(".swiper", {
+          direction: "vertical",
+          slidesPerView: 1,
+          spaceBetween: 0,
+          mousewheel: true,
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+        });
         // Observe all elements with the 'autoshow' class
         document.querySelectorAll(".autoshow").forEach((el) => {
           observer.observe(el);
