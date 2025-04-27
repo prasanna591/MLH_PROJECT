@@ -747,8 +747,29 @@
           el: ".swiper-pagination",
           clickable: true,
         },
-        mousewheel: false,
-        touchReleaseOnEdges: true,
+        grabCursor: true,
+        centeredSlides: true,
+      });
+
+      // Handle Play and Mute
+      const videos = document.querySelectorAll("video");
+
+      videos.forEach((video) => {
+        // Stop other videos when one starts playing
+        video.addEventListener("play", () => {
+          videos.forEach((v) => {
+            if (v !== video) {
+              v.pause();
+            }
+          });
+        });
+
+        // Unmute all videos when any video is unmuted
+        video.addEventListener("volumechange", () => {
+          if (!video.muted) {
+            videos.forEach((v) => (v.muted = false));
+          }
+        });
       });
       // Initialize AOS (Animate On Scroll)
       document.addEventListener("DOMContentLoaded", function () {
